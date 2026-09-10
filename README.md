@@ -1,4 +1,4 @@
-# OIBSIP Task 5 — Digital Library Management System
+Digital Library Management System
 
 Full-stack library management application using **React.js + Vite**, **Spring Boot REST API**, and **MySQL**.
 
