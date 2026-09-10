@@ -1,0 +1,6 @@
+import React from 'react'
+import { Icon, Stat, BookCard, LoanRow, PanelHead, EmptyPanel, Metric } from '../components/common'
+
+function Contact({ contact, setContact, sendContact, loading }) { return <main className="page contact-page"><div className="contact-intro"><span className="eyebrow">GET IN TOUCH</span><h1>We'd love to<br /><i>hear from you.</i></h1><p>Questions about a book, your account or the library? Send us a note and our team will get back to you.</p><div className="contact-cards"><div><b>Library desk</b><span>Mon–Sat · 9:00–18:00</span></div><div><b>Email</b><span>hello@libris.local</span></div></div></div><form className="contact-form panel" onSubmit={sendContact}><label>Name<input required value={contact.name} onChange={e => setContact({...contact, name:e.target.value})} placeholder="Your name" /></label><label>Email<input required type="email" value={contact.email} onChange={e => setContact({...contact, email:e.target.value})} placeholder="you@example.com" /></label><label>Message<textarea required rows="7" value={contact.message} onChange={e => setContact({...contact, message:e.target.value})} placeholder="How can we help?" /></label><button className="primary full" disabled={loading}>{loading ? 'Sending…' : 'Send message →'}</button></form></main> }
+
+export default Contact

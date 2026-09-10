@@ -1,0 +1,11 @@
+# Maven
+ target/
+
+# React/Vite
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.iml

@@ -1,0 +1,6 @@
+import React from 'react'
+import { Icon, Stat, BookCard, LoanRow, PanelHead, EmptyPanel, Metric } from '../components/common'
+
+function BookModal({ form, setForm, editing, onClose, onSubmit, loading }) { return <div className="modal-backdrop" onMouseDown={e => e.target === e.currentTarget && onClose()}><div className="modal"><button className="close" onClick={onClose}>×</button><span className="eyebrow">CATALOGUE</span><h2>{editing ? 'Edit book' : 'Add a new book'}</h2><p>Keep the catalogue fresh and easy to discover.</p><form onSubmit={onSubmit} className="book-form"><label>Title<input required value={form.title} onChange={e=>setForm({...form,title:e.target.value})}/></label><label>Author<input required value={form.author} onChange={e=>setForm({...form,author:e.target.value})}/></label><div className="two-col"><label>ISBN<input required value={form.isbn} onChange={e=>setForm({...form,isbn:e.target.value})}/></label><label>Genre<input value={form.category} onChange={e=>setForm({...form,category:e.target.value})}/></label></div><label>Quantity<input required min="1" type="number" value={form.quantity} onChange={e=>setForm({...form,quantity:e.target.value})}/></label><button className="primary full" disabled={loading}>{loading ? 'Saving…' : editing ? 'Save changes →' : 'Add book →'}</button></form></div></div> }
+
+export default BookModal

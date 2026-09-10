@@ -1,0 +1,8 @@
+import React from 'react'
+import { Icon, Stat, BookCard, LoanRow, PanelHead, EmptyPanel, Metric } from '../components/common'
+
+function Admin({ books, users, loans, bookings, openAddBook, openEditBook, deleteBook }) {
+  return <main className="page"><div className="page-head admin-head"><div><span className="eyebrow">LIBRARY OPERATIONS</span><h1>Admin dashboard</h1><p>Manage the collection and keep an eye on library activity.</p></div><button className="primary" onClick={openAddBook}>＋ Add book</button></div><div className="admin-metrics"><Metric label="Books" value={books.length}/><Metric label="Members" value={users.length}/><Metric label="Active loans" value={loans.filter(l => !l.returnDate).length}/><Metric label="Reservations" value={bookings.length}/></div><section className="panel admin-panel"><PanelHead title="Catalogue" meta={`${books.length} titles`} /><div className="admin-table">{books.map(book => <div className="admin-row" key={book.id}><div className="mini-cover">{book.title.charAt(0)}</div><div className="admin-book"><b>{book.title}</b><span>{book.author} · {book.category}</span></div><span className="quantity">{book.availableQuantity}/{book.quantity}</span><button className="icon-btn" onClick={() => openEditBook(book)} title="Edit">✎</button><button className="icon-btn danger-btn" onClick={() => deleteBook(book.id)} title="Delete">×</button></div>)}</div></section><section className="panel members"><PanelHead title="Members" meta={`${users.length} registered`} /><div className="member-grid">{users.map(u => <div className="member" key={u.id}><span>{u.name?.charAt(0).toUpperCase()}</span><div><b>{u.name}</b><small>{u.email}</small></div><em>{u.role}</em></div>)}</div></section></main>
+}
+
+export default Admin
